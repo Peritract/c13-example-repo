@@ -5,11 +5,13 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  speak:
-    name: "Communicate"
-    runs-on: ubuntu-latest
+  lint:
+    name: "Lint code"
+    uses: ubuntu-latest
     steps:
-     - name: "print text"
-       run: "echo 'hi!'"
-     - name: "print more text"
-       run: "echo 'Look at me!'"
+      - name: "Install Python"
+        uses: actions/setup-python@v5.1.1
+      - name: "Install libraries"
+        run: "pip install -r requirements.txt"
+      - name: "Run Pylint"
+        run: "pylint *.py"
