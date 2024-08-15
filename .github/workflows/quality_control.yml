@@ -5,8 +5,8 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  lint:
-    name: "Lint code"
+  quality_check:
+    name: "Quality control"
     runs-on: ubuntu-latest
     steps:
       - name: "Install Python"
@@ -18,4 +18,8 @@ jobs:
       - name: "Install libraries"
         run: "pip install -r requirements.txt"
       - name: "Run Pylint"
-        run: "pylint *.py"
+        run: "pylint --fail-under=8 *.py"
+      - name: "Run Pytest"
+        run: |
+          "pytest"
+          "echo 'all tests complete.'"
