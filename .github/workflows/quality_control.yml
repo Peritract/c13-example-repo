@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+  workflow_dispatch:
+jobs:
+  speak:
+    name: "Communicate"
+    runs-on: ubuntu-latest
+    steps:
+     - name: "print text"
+       run: "echo 'hi!'"
+     - name: "print more text"
+       run: "echo 'Look at me!'"
