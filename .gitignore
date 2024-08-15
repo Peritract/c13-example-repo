@@ -1,0 +1,12 @@
+# Files containing secrets
+.env
+.vscode
+
+# Files that auto-generated
+__pycache__
+.DS_Store
+venv
+.venv
+
+# Files that shouldn't live on Git
+*.csv
