@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: "Install Python"
         uses: actions/setup-python@v5.1.1
+        with:
+           python-version: '3.12' 
+      - name: "Get repository code"
+        uses: actions/checkout@v4
       - name: "Install libraries"
         run: "pip install -r requirements.txt"
       - name: "Run Pylint"
